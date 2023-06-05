@@ -22,7 +22,15 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('items')->group(function () {
-    Route::get('/', [App\Http\Controllers\ItemController::class, 'index']);
-    Route::get('/add', [App\Http\Controllers\ItemController::class, 'add']);
-    Route::post('/add', [App\Http\Controllers\ItemController::class, 'add']);
+    // 一覧
+    Route::get('/', [App\Http\Controllers\ItemController::class, 'index'])->name('index');
+    Route::get('/category/{id}', [App\Http\Controllers\ItemController::class, 'category'])->name('category');
+    Route::get('/create', [App\Http\Controllers\ItemController::class, 'create'])->name('create');
+    Route::post('/store', [App\Http\Controllers\ItemController::class, 'store'])->name('store');
+    Route::get('/show/{id}', [App\Http\Controllers\ItemController::class, 'show'])->name('show');
+    Route::post('/order/{id}', [App\Http\Controllers\ItemController::class, 'order'])->name('order');
+    Route::get('/edit/{id}', [App\Http\Controllers\ItemController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [App\Http\Controllers\ItemController::class, 'update'])->name('update');
+    Route::get('/complete/{id}', [App\Http\Controllers\ItemController::class, 'complete'])->name('complete');
+    Route::post('/destroy/{id}', [App\Http\Controllers\ItemController::class, 'destroy'])->name('destroy');
 });

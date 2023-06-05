@@ -1,17 +1,21 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+
+<link rel="stylesheet" href="{{ asset('/css/style.css') }}">
+
+@section('title', '商品管理システム')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1></h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <p></p>
 @stop
 
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+
 @stop
 
 @section('js')

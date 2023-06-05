@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>商品管理</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'vendor/adminlte/dist/img/tubaki.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -226,110 +226,204 @@ return [
 
     'menu' => [
         [
+            'text' => '商品登録',
+            'url'  => 'items/create',
+            'icon' => '',
+        ],
+        [
             'text' => '商品一覧',
             'url'  => 'items',
-            'icon' => 'fas fa-gamepad',
-        ],
-
-        // AdminLTEデフォルト
-        /*
-        // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
+            'icon' => '',
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-        */
-
-        // AdminLTEデフォルト
-        /*
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'スキンケア',
+            'icon'    => '',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => '洗顔',
+                    'url'  => 'items/category/1',
+                    'icon' => 'fas fa-angle-right',
                 ],
                 [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
+                    'text' => '化粧水',
+                    'url'  => 'items/category/2',
+                    'icon' => 'fas fa-angle-right',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => '乳液',
+                    'url'  => 'items/category/3',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => '美容液',
+                    'url'  => 'items/category/4',
+                    'icon' => 'fas fa-angle-right',
+                ],
+
+            ],
+        ],
+        [
+            'text'    => 'ベースメイク',
+            'icon'    => '',
+            'submenu' => [
+                [
+                    'text' => '化粧下地',
+                    'url'  => 'items/category/5',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'ファンデーション',
+                    'url'  => 'items/category/6',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'コンシーラー',
+                    'url'  => 'items/category/7',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'ハイライト',
+                    'url'  => 'items/category/8',
+                    'icon' => 'fas fa-angle-right',
                 ],
             ],
         ],
-        ['header' => 'labels'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'    => 'ポイントメイク',
+            'icon'    => '',
+            'submenu' => [
+                [
+                    'text' => 'アイブロー',
+                    'url'  => 'items/category/9',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'アイシャドー',
+                    'url'  => 'items/category/10',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'アイライナー',
+                    'url'  => 'items/category/11',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'マスカラ',
+                    'url'  => 'items/category/12',
+                    'icon' => 'fas fa-angle-right',
+                ],
+                [
+                    'text' => 'リップ',
+                    'url'  => 'items/category/13',
+                    'icon' => 'fas fa-angle-right',
+                ],
+            ],
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+            'text' => 'others',
+            'url'  => 'items/category/14',
+            'icon' => '',
         ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
-        */
+
+        // AdminLTEデフォルト
+
+        // Navbar items:
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'search',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
+
+
+        // AdminLTEデフォルト
+
+        // Sidebar items:
+        // [
+        //     'type' => 'sidebar-menu-search',
+        //     'text' => 'search',
+        // ],
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
+        // [
+        //     'text'        => 'pages',
+        //     'url'         => 'admin/pages',
+        //     'icon'        => 'far fa-fw fa-file',
+        //     'label'       => 4,
+        //     'label_color' => 'success',
+        // ],
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'profile',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+        // [
+        //     'text'    => 'multilevel',
+        //     'icon'    => 'fas fa-fw fa-share',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //         [
+        //             'text'    => 'level_one',
+        //             'url'     => '#',
+        //             'submenu' => [
+        //                 [
+        //                     'text' => 'level_two',
+        //                     'url'  => '#',
+        //                 ],
+        //                 [
+        //                     'text'    => 'level_two',
+        //                     'url'     => '#',
+        //                     'submenu' => [
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                         [
+        //                             'text' => 'level_three',
+        //                             'url'  => '#',
+        //                         ],
+        //                     ],
+        //                 ],
+        //             ],
+        //         ],
+        //         [
+        //             'text' => 'level_one',
+        //             'url'  => '#',
+        //         ],
+        //     ],
+        // ],
+        // ['header' => 'labels'],
+        // [
+        //     'text'       => 'important',
+        //     'icon_color' => 'red',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'warning',
+        //     'icon_color' => 'yellow',
+        //     'url'        => '#',
+        // ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'cyan',
+        //     'url'        => '#',
+        // ],
+
     ],
 
     /*
