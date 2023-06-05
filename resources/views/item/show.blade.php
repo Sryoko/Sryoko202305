@@ -23,7 +23,7 @@
                 <form action="{{ url('items/order/'.$item->id)}}"method="POST">
                     @csrf
                     <div class="card-body">
-                    <div class="form-group mb-3">
+                        <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
                             <input type="text" class="form-control" id="item_id" name="item_id" style="background-color: #f8fafc; border: 1px solid #ced4da;" value="{{$item->item_id}}" readonly>
                         </div>
@@ -57,7 +57,6 @@
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
                             <input type="number" class="form-control" id="stock" name="stock" style="background-color: #f8fafc; border: 1px solid #ced4da;" value="{{$item->stock}}" readonly>
-                            <!-- <input type="number" class="form-control" id="stock" name="stock" placeholder="1, 2, 3, ..."> -->
                         </div>
 
                         <div class="form-group mb-3">

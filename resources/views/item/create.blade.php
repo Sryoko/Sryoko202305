@@ -23,10 +23,9 @@
                 <form action="{{ url('items/store') }}"method="POST">
                     @csrf
                     <div class="card-body">
-                    <div class="form-group mb-3">
+                        <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
                             <input type="text" class="form-control" id="item_id" name="item_id">
-                            <!-- placeholder="品番" -->
                         </div>
 
                         <div class="form-group mb-3">
@@ -43,7 +42,6 @@
                             <label class="mb-0" for="category">カテゴリー</label>
                             <select name="category" class="form-control">
                                 <option value="" disabled selected></option>
-                                <!-- <option value="" disabled selected>カテゴリーを選択してください</option> -->
                                 <option value="1">1：スキンケア</option>
                                 <option value="2">2：ベースメイク</option>
                                 <option value="3">3：ポイントメイク</option>
@@ -98,7 +96,6 @@
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
                             <input type="number" class="form-control" id="stock" name="stock">
-                            <!-- <input type="number" class="form-control" id="stock" name="stock" placeholder="1, 2, 3, ..."> -->
                         </div>
 
                         <div class="form-group mb-3">

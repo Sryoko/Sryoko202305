@@ -23,10 +23,9 @@
                 <form action="{{ url('items/update/'.$item->id) }}"method="POST">
                     @csrf
                     <div class="card-body">
-                    <div class="form-group mb-3">
+                        <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
                             <input type="text" class="form-control" id="item_id" name="item_id" value="{{$item->item_id}}">
-                            <!-- placeholder="品番" -->
                         </div>
 
                         <div class="form-group mb-3">
@@ -53,7 +52,7 @@
                         <div class="form-group mb-3">
                             <label class="mb-0" for="sub_category">サブカテゴリー</label>
                             <select name="sub_category" class="form-control" value="{{$item->subcategory}}">
-                            <option value="" selected></option>
+                                <option value="" selected></option>
                                 <option value="1" {{ $item->sub_category == 1 ? 'selected' : '' }}>1：洗顔</option>
                                 <option value="2" {{ $item->sub_category == 2 ? 'selected' : '' }}>2：化粧水</option>
                                 <option value="3" {{ $item->sub_category == 3 ? 'selected' : '' }}>3：乳液</option>
@@ -97,7 +96,6 @@
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
                             <input type="number" class="form-control" id="stock" name="stock" value="{{$item->stock}}">
-                            <!-- <input type="number" class="form-control" id="stock" name="stock" placeholder="1, 2, 3, ..."> -->
                         </div>
 
                         <div class="form-group mb-3">
@@ -110,6 +108,7 @@
                         <button type="submit" class="btn btn-outline-dark">更新</button>
                     </div>
                 </form>
+                
                 <form action="{{ url('items/destroy/'.$item->id) }}"method="POST">
                     @csrf
                     <div class="card-footer bg-transparent">

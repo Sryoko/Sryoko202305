@@ -41,6 +41,7 @@ class ItemController extends Controller
         //$items = Item::Paginate(10); 
         return view('item.index', compact('items', 'keyword'));
         }
+
     /**
      * カテゴリー一覧
      */
@@ -59,8 +60,6 @@ class ItemController extends Controller
                 ->orWhere('detail', 'LIKE', "%{$keyword}%");
         }
         $query->where('sub_category', '=', "$id");
-        //$items = $query->get();
-        //$items = Item::Paginate(10);
         $items = $query->paginate(10);
         return view('item.index', compact('items', 'keyword'));
     }
@@ -77,7 +76,7 @@ class ItemController extends Controller
     {
         // バリデーション
         $this->validate($request, [
-            'item_id' => 'required|max:20',
+            'item_id' => 'required|max:20|unique:items',
             'name' => 'required|max:100',
             'release_date' => 'required',
             'category' => 'max:6',
@@ -112,17 +111,15 @@ class ItemController extends Controller
     public function show(Request $request, $id)
     {
         $item = Item::find($id);
-        // dd($item);
         return view('item.show', compact('item'));
     }
 
     /**
-     * 商品発注登録
+     * 商品発注
      */
     public function order(Request $request, $id)
     {
         $item = Item::find($id);
-        // dd($item,$id);
         $itemstock = $item->stock;
         $item->stock = $itemstock+$request->stock;
         $item->updated_at = now();
@@ -136,7 +133,6 @@ class ItemController extends Controller
     public function edit(Request $request, $id)
     {
         $item = Item::find($id);
-        // dd($item);
         return view('item.edit', compact('item'));
     }
     public function update(Request $request, $id)
@@ -158,7 +154,6 @@ class ItemController extends Controller
     public function complete(Request $request, $id)
     {
         $item = Item::find($id);
-        // dd($item);
         return view('item.complete', compact('item'));
     }
 
@@ -167,11 +162,8 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        // itemテーブルから指定のIDのレコード1件を取得
         $item = Item::find($id);
-        // レコードを削除
         $item->delete();
-        // 削除したら一覧画面にリダイレクト
         return redirect('/items');
     }
 
