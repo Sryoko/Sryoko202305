@@ -85,7 +85,7 @@ class ItemController extends Controller
             'status' => 'required|max:1',
             'jan_code' => 'required|max:20',
             'stock' => 'required|max:5',
-            'detail' => 'max:100',
+            'detail' => 'max:190',
         ]);
 
         // 商品登録
@@ -119,6 +119,12 @@ class ItemController extends Controller
      */
     public function order(Request $request, $id)
     {
+        // バリデーション
+        $this->validate($request, [
+            'stock' => 'required|max:5',
+        ]);
+        
+        // 商品発注
         $item = Item::find($id);
         $itemstock = $item->stock;
         $item->stock = $itemstock+$request->stock;
@@ -137,6 +143,20 @@ class ItemController extends Controller
     }
     public function update(Request $request, $id)
     {
+        // バリデーション
+        $this->validate($request, [
+            'item_id' => 'required|max:20',
+            'name' => 'required|max:100',
+            'release_date' => 'required',
+            'category' => 'max:6',
+            'sub_category' => 'max:6',
+            'type' => 'required|max:6',
+            'status' => 'required|max:1',
+            'jan_code' => 'required|max:20',
+            'stock' => 'required|max:5',
+            'detail' => 'max:190',
+        ]);
+        
         $item = Item::find($request->id);
         $item->item_id = $request->item_id;
         $item->name = $request->name;

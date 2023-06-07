@@ -320,7 +320,7 @@ return [
             ],
         ],
         [
-            'text' => 'others',
+            'text' => 'その他',
             'url'  => 'items/category/14',
             'icon' => '',
         ],

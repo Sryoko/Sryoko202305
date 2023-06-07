@@ -1,9 +1,9 @@
 @extends('home')
 
-@section('title', '商品発注')
+@section('title', '発注画面')
 
 @section('content_header')
-    <h1 class="m-3">商品発注</h1>
+    <h1 class="m-3">発注画面</h1>
 @stop
 
 @section('content')

@@ -25,17 +25,17 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
-                            <input type="text" class="form-control" id="item_id" name="item_id">
+                            <input type="text" class="form-control" id="item_id" name="item_id" value="{{ old('item_id') }}">
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="name">品名</label>
-                            <input type="text" class="form-control" id="name" name="name">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
                         </div>
 
                         <div class="form-group mb-3" style="width: 250px;min-width :180px;">
                             <label class="mb-0" for="release_date">発売</label>
-                            <input type="date" class="form-control" id="release_date" name="release_date" placeholder="2023-04-01">
+                            <input type="date" class="form-control" id="release_date" name="release_date" placeholder="2023-04-01" value="{{ old('release_date') }}">
                         </div>
 
                         <div class="form-group mb-3">
@@ -90,17 +90,17 @@
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="jan_code">JANコード</label>
-                            <input type="number" class="form-control" id="jan_code" name="jan_code" placeholder="数字13桁">
+                            <input type="number" class="form-control" id="jan_code" name="jan_code" placeholder="数字13桁" value="{{ old('jan_code') }}">
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
-                            <input type="number" class="form-control" id="stock" name="stock">
+                            <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock') }}">
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail">
+                            <input type="text" class="form-control" id="detail" name="detail" value="{{ old('detail') }}">
                         </div>
                     </div>
 
