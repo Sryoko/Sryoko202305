@@ -30,7 +30,7 @@ class ItemController extends Controller
         if(!empty($keyword)) {
             $query->where('item_id', 'LIKE', "%{$keyword}%")
                 ->orWhere('name', 'LIKE', "%{$keyword}%")
-                ->orWhere('release_date', 'LIKE', "%{$keyword}%")
+                // ->orWhere('release_date', 'LIKE', "%{$keyword}%")
                 ->orWhere('status', 'LIKE', "%{$keyword}%")
                 ->orWhere('jan_code', 'LIKE', "%{$keyword}%")
                 ->orWhere('detail', 'LIKE', "%{$keyword}%");
