@@ -87,6 +87,10 @@ class ItemController extends Controller
             'jan_code' => 'required|digits:13',
             'stock' => 'required|max:5',
             'detail' => 'max:190',
+        ],
+        [
+            'stock.required' => '在庫数は必須です。',
+            'stock.max' => '在庫数は 5 桁以下で入力してください。'
         ]);
 
         // 商品登録
@@ -123,6 +127,10 @@ class ItemController extends Controller
         // バリデーション
         $this->validate($request, [
             'stock' => 'required|max:5',
+        ],
+        [
+            'stock.required' => '発注数は必須です。',
+            'stock.max' => '発注数は 5 桁以下で入力してください。'
         ]);
         
         // 商品発注
@@ -156,6 +164,10 @@ class ItemController extends Controller
             'jan_code' => 'required|digits:13',
             'stock' => 'required|max:5',
             'detail' => 'max:190',
+        ],
+        [
+            'stock.required' => '在庫数は必須です。',
+            'stock.max' => '在庫数は 5 桁で入力してください。'
         ]);
         
         $item = Item::find($request->id);
