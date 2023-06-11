@@ -9,7 +9,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-10">
-            @if ($errors->any())
+            <!-- @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
                         @foreach ($errors->all() as $error)
@@ -17,7 +17,7 @@
                         @endforeach
                     </ul>
                 </div>
-            @endif
+            @endif -->
 
             <div class="card card-primary">
                 <form action="{{ url('items/store') }}"method="POST">
@@ -25,82 +25,142 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
-                            <input type="text" class="form-control" id="item_id" name="item_id" value="{{ old('item_id') }}">
+                            <input type="text" class="form-control @error('item_id') is-invalid @enderror" id="item_id" name="item_id" value="{{ old('item_id') }}">
+
+                            @error('item_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="name">品名</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}">
+                        
+                            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3" style="width: 250px;min-width :180px;">
                             <label class="mb-0" for="release_date">発売</label>
-                            <input type="date" class="form-control" id="release_date" name="release_date" placeholder="2023-04-01" value="{{ old('release_date') }}">
+                            <input type="date" class="form-control @error('release_date') is-invalid @enderror" id="release_date" name="release_date" placeholder="2023-04-01" value="{{ old('release_date') }}">
+                        
+                            @error('release_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="category">カテゴリー</label>
-                            <select name="category" class="form-control">
+                            <select name="category" class="form-control @error('category') is-invalid @enderror">
                                 <option value="" disabled selected></option>
-                                <option value="1">1：スキンケア</option>
-                                <option value="2">2：ベースメイク</option>
-                                <option value="3">3：ポイントメイク</option>
-                                <option value="4">4：その他</option>
+                                <option value="1" @if(old('category')=='1') selected @endif>1：スキンケア</option>
+                                <option value="2" @if(old('category')=='2') selected @endif>2：ベースメイク</option>
+                                <option value="3" @if(old('category')=='3') selected @endif>3：ポイントメイク</option>
+                                <option value="4" @if(old('category')=='4') selected @endif>4：その他</option>
                             </select>
+
+                            @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="sub_category">サブカテゴリー</label>
-                            <select name="sub_category" class="form-control">
+                            <select name="sub_category" class="form-control @error('sub_category') is-invalid @enderror">
                                 <option value="" disabled selected></option>
-                                <option value="1">1：洗顔</option>
-                                <option value="2">2：化粧水</option>
-                                <option value="3">3：乳液</option>
-                                <option value="4">4：美容液</option>
-                                <option value="5">5：化粧下地</option>
-                                <option value="6">6：ファンデーション</option>
-                                <option value="7">7：コンシーラー</option>
-                                <option value="8">8：ハイライト</option>
-                                <option value="9">9：アイブロー</option>
-                                <option value="10">10：アイシャドー</option>
-                                <option value="11">11：アイライナー</option>
-                                <option value="12">12：マスカラ</option>
-                                <option value="13">13：リップ</option>
-                                <option value="14">14：その他</option>
+                                <option value="1" @if(old('sub_category')=='1') selected @endif>1：洗顔</option>
+                                <option value="2" @if(old('sub_category')=='2') selected @endif>2：化粧水</option>
+                                <option value="3" @if(old('sub_category')=='3') selected @endif>3：乳液</option>
+                                <option value="4" @if(old('sub_category')=='4') selected @endif>4：美容液</option>
+                                <option value="5" @if(old('sub_category')=='5') selected @endif>5：化粧下地</option>
+                                <option value="6" @if(old('sub_category')=='6') selected @endif>6：ファンデーション</option>
+                                <option value="7" @if(old('sub_category')=='7') selected @endif>7：コンシーラー</option>
+                                <option value="8" @if(old('sub_category')=='8') selected @endif>8：ハイライト</option>
+                                <option value="9" @if(old('sub_category')=='9') selected @endif>9：アイブロー</option>
+                                <option value="10" @if(old('sub_category')=='10') selected @endif>10：アイシャドー</option>
+                                <option value="11" @if(old('sub_category')=='11') selected @endif>11：アイライナー</option>
+                                <option value="12" @if(old('sub_category')=='12') selected @endif>12：マスカラ</option>
+                                <option value="13" @if(old('sub_category')=='13') selected @endif>13：リップ</option>
+                                <option value="14" @if(old('sub_category')=='14') selected @endif>14：その他</option>
                             </select>
+
+                            @error('sub_category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="type">種別</label>
-                            <select name="type" class="form-control">
+                            <select name="type" class="form-control @error('type') is-invalid @enderror">
                                 <option value="" disabled selected></option>
-                                <option value="1">1：定番</option>
-                                <option value="2">2：限定</option>
+                                <option value="1" @if(old('type')=='1') selected @endif>1：定番</option>
+                                <option value="2" @if(old('type')=='2') selected @endif>2：限定</option>
                             </select>
+                            
+                            @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="status">ステータス</label>
-                            <select name="status" class="form-control">
+                            <select name="status" class="form-control @error('status') is-invalid @enderror">
                                 <option value="" disabled selected></option>
-                                <option value="1">1：◯</option>
-                                <option value="2">2：終了</option>
+                                <option value="1" @if(old('status')=='1') selected @endif>1：◯</option>
+                                <option value="2" @if(old('status')=='2') selected @endif>2：終了</option>
                             </select>
+
+                            @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="jan_code">JANコード</label>
-                            <input type="number" class="form-control" id="jan_code" name="jan_code" placeholder="数字13桁" value="{{ old('jan_code') }}">
+                            <input type="number" class="form-control @error('jan_code') is-invalid @enderror" id="jan_code" name="jan_code" placeholder="数字13桁" value="{{ old('jan_code') }}">
+                        
+                            @error('jan_code')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
-                            <input type="number" class="form-control" id="stock" name="stock" value="{{ old('stock') }}">
+                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{ old('stock') }}">
+                        
+                            @error('stock')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" value="{{ old('detail') }}">
+                            <input type="text" class="form-control @error('detail') is-invalid @enderror" id="detail" name="detail" value="{{ old('detail') }}">
+                        
+                            @error('detail')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 

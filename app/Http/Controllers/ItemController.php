@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
+use App\Rules\Hankaku;
 
 class ItemController extends Controller
 {
@@ -76,14 +77,14 @@ class ItemController extends Controller
     {
         // バリデーション
         $this->validate($request, [
-            'item_id' => 'required|max:20|unique:items',
+            'item_id' => ['required','max:20','unique:items', new Hankaku()],
             'name' => 'required|max:100',
             'release_date' => 'required',
-            'category' => 'max:6',
-            'sub_category' => 'max:6',
+            'category' => 'required|max:6',
+            'sub_category' => 'required|max:6',
             'type' => 'required|max:6',
             'status' => 'required|max:1',
-            'jan_code' => 'required|max:20',
+            'jan_code' => 'required|digits:13',
             'stock' => 'required|max:5',
             'detail' => 'max:190',
         ]);
@@ -145,14 +146,14 @@ class ItemController extends Controller
     {
         // バリデーション
         $this->validate($request, [
-            'item_id' => 'required|max:20',
+            'item_id' => ['required','max:20', new Hankaku()],
             'name' => 'required|max:100',
             'release_date' => 'required',
-            'category' => 'max:6',
-            'sub_category' => 'max:6',
+            'category' => 'required|max:6',
+            'sub_category' => 'required|max:6',
             'type' => 'required|max:6',
             'status' => 'required|max:1',
-            'jan_code' => 'required|max:20',
+            'jan_code' => 'required|digits:13',
             'stock' => 'required|max:5',
             'detail' => 'max:190',
         ]);
