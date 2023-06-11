@@ -9,15 +9,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-10">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <div class="card card-primary">
                 <form action="{{ url('items/update/'.$item->id) }}"method="POST">
@@ -25,33 +16,57 @@
                     <div class="card-body">
                         <div class="form-group mb-3">
                             <label class="mb-0" for="item_id">品番</label>
-                            <input type="text" class="form-control" id="item_id" name="item_id" value="{{$item->item_id}}">
+                            <input type="text" class="form-control @error('item_id') is-invalid @enderror" id="item_id" name="item_id" value="{{$item->item_id}}">
+                        
+                            @error('item_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="name">品名</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{$item->name}}">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{$item->name}}">
+                                                
+                            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3" style="width: 250px;min-width :180px;">
                             <label class="mb-0" for="release_date">発売</label>
-                            <input type="date" class="form-control" id="release_date" name="release_date" value="{{$item->release_date}}">
+                            <input type="date" class="form-control @error('release_date') is-invalid @enderror" id="release_date" name="release_date" value="{{$item->release_date}}">
+                                                
+                            @error('release_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="category">カテゴリー</label>
-                            <select name="category" class="form-control" value="{{$item->category}}">
+                            <select name="category" class="form-control @error('category') is-invalid @enderror" value="{{$item->category}}">
                                 <option value="" selected></option>
                                 <option value="1" {{ $item->category == 1 ? 'selected' : '' }}>1：スキンケア</option>
                                 <option value="2" {{ $item->category == 2 ? 'selected' : '' }}>2：ベースメイク</option>
                                 <option value="3" {{ $item->category == 3 ? 'selected' : '' }}>3：ポイントメイク</option>
                                 <option value="4" {{ $item->category == 4 ? 'selected' : '' }}>4：その他</option>
                             </select>
+                        
+                            @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="sub_category">サブカテゴリー</label>
-                            <select name="sub_category" class="form-control" value="{{$item->subcategory}}">
+                            <select name="sub_category" class="form-control @error('sub_category') is-invalid @enderror" value="{{$item->subcategory}}">
                                 <option value="" selected></option>
                                 <option value="1" {{ $item->sub_category == 1 ? 'selected' : '' }}>1：洗顔</option>
                                 <option value="2" {{ $item->sub_category == 2 ? 'selected' : '' }}>2：化粧水</option>
@@ -68,39 +83,75 @@
                                 <option value="13" {{ $item->sub_category == 13 ? 'selected' : '' }}>13：リップ</option>
                                 <option value="14" {{ $item->sub_category == 14 ? 'selected' : '' }}>14：その他</option>
                             </select>
+                        
+                            @error('sub_category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="type">種別</label>
-                            <select name="type" class="form-control" value="{{$item->type}}">
+                            <select name="type" class="form-control @error('type') is-invalid @enderror" value="{{$item->type}}">
                                 <option value="" selected></option>
                                 <option value="1" {{ $item->type == 1 ? 'selected' : '' }}>1：定番</option>
                                 <option value="2" {{ $item->type == 2 ? 'selected' : '' }}>2：限定</option>
                             </select>
+                                                    
+                            @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="status">ステータス</label>
-                            <select name="status" class="form-control" value="{{$item->status}}">
+                            <select name="status" class="form-control @error('status') is-invalid @enderror" value="{{$item->status}}">
                                 <option value="" selected></option>
                                 <option value="1" {{ $item->status == 1 ? 'selected' : '' }}>1：◯</option>
                                 <option value="2" {{ $item->status == 2 ? 'selected' : '' }}>2：終了</option>
                             </select>
+                        
+                            @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="jan_code">JANコード</label>
-                            <input type="number" class="form-control" id="jan_code" name="jan_code" placeholder="数字13桁"  value="{{$item->jan_code}}">
+                            <input type="number" class="form-control @error('jan_code') is-invalid @enderror" id="jan_code" name="jan_code" placeholder="数字13桁"  value="{{$item->jan_code}}">
+                                                
+                            @error('jan_code')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">在庫</label>
-                            <input type="number" class="form-control" id="stock" name="stock" value="{{$item->stock}}">
+                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" value="{{$item->stock}}">
+                                                
+                            @error('stock')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group mb-3">
                             <label class="mb-0" for="detail">詳細</label>
-                            <input type="text" class="form-control" id="detail" name="detail" value="{{$item->datail}}">
+                            <input type="text" class="form-control @error('detail') is-invalid @enderror" id="detail" name="detail" value="{{$item->datail}}">
+                                                
+                            @error('detail')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 

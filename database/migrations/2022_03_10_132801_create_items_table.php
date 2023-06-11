@@ -15,7 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('item_id')->unsigned()->index();
+            $table->string('item_id')->index()->unique();
             $table->string('name',100)->index();
             $table->date('release_date');
             $table->smallInteger('category')->nullable();
@@ -23,7 +23,7 @@ class CreateItemsTable extends Migration
             $table->smallInteger('type')->nullable();
             $table->boolean('status')->default(true);
             $table->bigInteger('jan_code')->unsigned();
-            $table->smallInteger('stock')->unsigned();
+            $table->mediumInteger('stock');
             $table->string('detail', 190)->nullable();
             $table->timestamps();
         });

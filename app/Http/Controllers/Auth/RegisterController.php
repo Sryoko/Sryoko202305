@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\Hankaku;
 
 class RegisterController extends Controller
 {
@@ -50,11 +51,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'employee_id' => ['required', 'unique:users'],
-            'name' => ['required', 'string', 'max:255'],
-            'tel' => ['required', 'max:255'],
+            'employee_id' => ['required','min:4','max:6', 'unique:users', new Hankaku()],
+            'name' => ['required', 'string', 'max:20'],
+            'tel' => ['required', 'max:255', 'regex:/^[0-9-]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ],
+        [
+            'name.required' => '名前は必須です。',
+            'name.string' => '名前は必須です。',
+            'name.max' => '名前は 20 文字以下のみ有効です。'
         ]);
     }
 

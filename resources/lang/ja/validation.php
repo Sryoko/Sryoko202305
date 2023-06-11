@@ -39,7 +39,7 @@ return [
     'declined' => 'The :attribute must be declined.',
     'declined_if' => 'The :attribute must be declined when :other is :value.',
     'different' => 'The :attribute and :other must be different.',
-    'digits' => 'The :attribute must be :digits digits.',
+    'digits' => ':attributeは:digits桁で指定してください。',
     'digits_between' => 'The :attribute must be between :min and :max digits.',
     'dimensions' => 'The :attribute has invalid image dimensions.',
     'distinct' => 'The :attribute field has a duplicate value.',
@@ -93,7 +93,7 @@ return [
     'min' => [
         'numeric' => 'The :attribute must be at least :min.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'string' => 'The :attribute must be at least :min characters.',
+        'string' => ':attribute は :min 文字以上のみ有効です。',
         'array' => 'The :attribute must have at least :min items.',
     ],
     'multiple_of' => 'The :attribute must be a multiple of :value.',
@@ -106,7 +106,7 @@ return [
     'prohibited_if' => 'The :attribute field is prohibited when :other is :value.',
     'prohibited_unless' => 'The :attribute field is prohibited unless :other is in :values.',
     'prohibits' => 'The :attribute field prohibits :other from being present.',
-    'regex' => 'The :attribute format is invalid.',
+    'regex' => ':attribute 無効な値です。',
     'required' => ':attribute は必須項目です。',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
     'required_if' => 'The :attribute field is required when :other is :value.',
@@ -158,6 +158,21 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'employee_id' => '社員番号',
+        'tel' => '電話番号',
+        'email' => 'メールアドレス',
+        'password' => 'パスワード',
+        'item_id' => '品番',
+        'name' => '品名',
+        'release_date' => '発売日',
+        'category' => 'カテゴリー',
+        'sub_category' => 'サブカテゴリー',
+        'type' => '種別',
+        'status' => 'ステータス',
+        'jan_code' => 'JANコード',
+        'stock' => '在庫',
+        'detail' => '詳細',
+    ],
 
 ];

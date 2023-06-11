@@ -9,15 +9,6 @@
 @section('content')
     <div class="row">
         <div class="col-md-10">
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
 
             <div class="card card-primary">
                 <form action="{{ url('items/order/'.$item->id)}}"method="POST">
@@ -66,7 +57,13 @@
                         
                         <div class="form-group mb-3">
                             <label class="mb-0" for="stock">発注</label>
-                            <input type="number" min="1" pattern="^[0-9]+$" class="form-control" id="stock" name="stock" autofocus>
+                            <input type="number" min="1" pattern="^[0-9]+$" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock" autofocus>
+                                                
+                            @error('stock')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
 
